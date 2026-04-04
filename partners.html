@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="bn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Partners | RCY Adamdighi</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-hand-holding-heart"></i>
+          <span>RCY Adamdighi</span>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+          </li>
+          <li>
+            <a href="activities.html"
+              ><i class="fas fa-images"></i> Activities</a
+            >
+          </li>
+          <li>
+            <a href="library.html"><i class="fas fa-book-open"></i> Library</a>
+          </li>
+          <li>
+            <a href="notices.html"><i class="fas fa-bullhorn"></i> Notices</a>
+          </li>
+          <li>
+            <a href="partners.html" class="active"
+              ><i class="fas fa-handshake"></i> Partners</a
+            >
+          </li>
+          <li>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+          </li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <div class="container">
+      <section class="section">
+        <div class="section-header">
+          <h2 class="section-title">
+            <i class="fas fa-handshake"></i> Our Supportive Partners
+          </h2>
+          <p style="color: var(--text-muted); margin-top: 0.5rem">
+            Organizations that support our humanitarian mission
+          </p>
+        </div>
+
+        <div class="partners-grid" id="partnersContainer"></div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া</p>
+        <p class="tagline">
+          <i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায়
+          নিবেদিত
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+      const partners = [
+        "যুব রেড ক্রিসেন্ট, বগুড়া",
+        "উপজেলা প্রশাসন, আদমদীঘি বগুড়া",
+        "ন্যাটো ফামের্সি, সান্তাহার",
+        "International Federation of Red Cross and Red Crescent Societies",
+      ];
+
+      document.getElementById("partnersContainer").innerHTML = partners
+        .map(
+          (partner) => `
+            <div class="partner-badge">
+                <i class="fas fa-handshake"></i>
+                ${partner}
+            </div>
+        `,
+        )
+        .join("");
+    </script>
+  </body>
+</html>
