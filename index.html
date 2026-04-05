@@ -115,7 +115,7 @@
             66% { transform: translateY(30px) rotate(240deg); }
         }
 
-        /* Glassmorphism Navbar */
+        /* Glassmorphism Navbar - FIXED z-index */
         .navbar {
             position: fixed;
             top: 0;
@@ -141,6 +141,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            position: relative; /* Added for z-index context */
         }
 
         .logo {
@@ -152,6 +153,8 @@
             font-weight: 800;
             font-size: 1.5rem;
             transition: all 0.3s ease;
+            position: relative;
+            z-index: 1002; /* Above mobile menu */
         }
 
         .navbar.scrolled .logo {
@@ -222,7 +225,7 @@
             color: var(--light);
         }
 
-        /* Mobile Menu Styles */
+        /* Mobile Menu Button - FIXED */
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -236,7 +239,8 @@
             transition: all 0.3s ease;
             align-items: center;
             justify-content: center;
-            z-index: 1001;
+            position: relative;
+            z-index: 1001; /* Above navbar but below mobile menu */
         }
 
         .mobile-menu-btn:hover {
@@ -251,26 +255,7 @@
             background: rgba(183,28,28,0.1);
         }
 
-        /* Mobile Menu Overlay */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 320px;
-            height: 100vh;
-            background: var(--light);
-            z-index: 999;
-            padding: 6rem 2rem 2rem;
-            transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: -10px 0 50px rgba(0,0,0,0.2);
-            overflow-y: auto;
-        }
-
-        .mobile-menu.active {
-            right: 0;
-        }
-
+        /* Mobile Menu Overlay - FIXED z-index hierarchy */
         .mobile-menu-overlay {
             position: fixed;
             top: 0;
@@ -287,6 +272,61 @@
         .mobile-menu-overlay.active {
             opacity: 1;
             visibility: visible;
+        }
+
+        /* Mobile Menu - FIXED z-index and structure */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 320px;
+            height: 100vh;
+            background: var(--light);
+            z-index: 999; /* Below close button but above overlay */
+            padding: 5rem 2rem 2rem;
+            transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        /* Mobile Menu Close Button - FIXED positioning and z-index */
+        .mobile-menu-close {
+            position: fixed; /* Changed from absolute to fixed */
+            top: 1rem;
+            right: 1rem;
+            width: 45px;
+            height: 45px;
+            background: rgba(183,28,28,0.1);
+            border: none;
+            border-radius: 12px;
+            color: var(--primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1001; /* Same as hamburger button */
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none; /* Prevent clicks when hidden */
+        }
+
+        .mobile-menu-close.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto; /* Enable clicks when visible */
+        }
+
+        .mobile-menu-close:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(90deg);
         }
 
         .mobile-nav-links {
@@ -330,31 +370,7 @@
             color: var(--primary);
         }
 
-        .mobile-menu-close {
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 40px;
-            height: 40px;
-            background: rgba(183,28,28,0.1);
-            border: none;
-            border-radius: 10px;
-            color: var(--primary);
-            font-size: 1.2rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-close:hover {
-            background: var(--primary);
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        /* Hero Section - Modern Split Design */
+        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -363,7 +379,7 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
-            padding-bottom: 120px; /* Added padding for stats overlap */
+            padding-bottom: 120px;
         }
 
         .hero::before {
@@ -597,7 +613,7 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
-        /* Stats Section - Fixed Overlap Issue */
+        /* Stats Section */
         .stats-section {
             position: relative;
             z-index: 100;
@@ -1070,11 +1086,6 @@
                 display: inline-block;
             }
 
-            /* Stats section tablet */
-            .stats-section {
-                margin-top: -60px;
-            }
-            
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1108,7 +1119,7 @@
             .hero {
                 padding-top: 100px;
                 min-height: auto;
-                padding-bottom: 100px; /* Increased for stats overlap */
+                padding-bottom: 100px;
             }
 
             .hero h1 {
@@ -1137,12 +1148,9 @@
                 justify-content: center;
             }
 
-            /* Stats section mobile - FIXED */
             .stats-section {
                 margin-top: -60px;
                 padding: 0 1rem;
-                position: relative;
-                z-index: 100;
             }
 
             .stats-container {
@@ -1282,11 +1290,6 @@
                 height: 60px;
                 font-size: 2rem;
             }
-            
-            /* Smaller negative margin on very small screens */
-            .stats-section {
-                margin-top: -40px;
-            }
         }
 
         /* Prevent body scroll when mobile menu is open */
@@ -1308,11 +1311,13 @@
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 
+    <!-- Mobile Menu Close Button - MOVED OUTSIDE mobile-menu div -->
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+    </button>
+
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu-close" id="mobileMenuClose">
-            <i class="fas fa-times"></i>
-        </button>
         <ul class="mobile-nav-links">
             <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
             <li><a href="about.html"><i class="fas fa-info-circle"></i> About</a></li>
@@ -1342,7 +1347,7 @@
                 <li><a href="partners.html">Partners</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -1407,7 +1412,7 @@
         </div>
     </section>
 
-    <!-- Stats Section - Fixed Structure -->
+    <!-- Stats Section -->
     <section class="stats-section">
         <div class="stats-container">
             <div class="stat-card">
@@ -1606,7 +1611,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript - FIXED Mobile Menu -->
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
@@ -1618,42 +1623,109 @@
             }
         });
 
-        // Mobile Menu Toggle
+        // Mobile Menu Elements
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
         const mobileMenuClose = document.getElementById('mobileMenuClose');
         const body = document.body;
 
-        function openMobileMenu() {
+        // Toggle hamburger button visibility
+        function toggleHamburger(show) {
+            if (show) {
+                mobileMenuBtn.style.display = 'flex';
+                mobileMenuBtn.style.opacity = '1';
+                mobileMenuBtn.style.visibility = 'visible';
+                mobileMenuBtn.style.pointerEvents = 'auto';
+            } else {
+                mobileMenuBtn.style.opacity = '0';
+                mobileMenuBtn.style.visibility = 'hidden';
+                mobileMenuBtn.style.pointerEvents = 'none';
+                // Delay display:none to allow transition
+                setTimeout(() => {
+                    if (!mobileMenu.classList.contains('active')) {
+                        mobileMenuBtn.style.display = 'none';
+                    }
+                }, 300);
+            }
+        }
+
+        // Open Mobile Menu
+        function openMobileMenu(e) {
+            if (e) e.preventDefault();
+            
             mobileMenu.classList.add('active');
             mobileMenuOverlay.classList.add('active');
+            mobileMenuClose.classList.add('active');
             body.classList.add('menu-open');
+            
+            // Hide hamburger when menu is open
+            toggleHamburger(false);
+            
+            console.log('Menu opened');
         }
 
-        function closeMobileMenu() {
+        // Close Mobile Menu - FIXED with stopPropagation
+        function closeMobileMenu(e) {
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation(); // Prevent event bubbling [^16^]
+            }
+            
             mobileMenu.classList.remove('active');
             mobileMenuOverlay.classList.remove('active');
+            mobileMenuClose.classList.remove('active');
             body.classList.remove('menu-open');
+            
+            // Show hamburger when menu closes
+            toggleHamburger(true);
+            
+            console.log('Menu closed');
         }
 
+        // Event Listeners with proper touch support [^21^][^23^]
+        
+        // Open menu - use click for desktop and touch devices
         mobileMenuBtn.addEventListener('click', openMobileMenu);
+        
+        // Close menu - multiple event types for reliability
         mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuClose.addEventListener('touchend', function(e) {
+            e.preventDefault();
+            closeMobileMenu(e);
+        }, { passive: false });
+
+        // Overlay click to close
         mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
         // Close menu when clicking on links
         document.querySelectorAll('.mobile-nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMobileMenu();
+            link.addEventListener('click', (e) => {
+                // Allow navigation but close menu
+                setTimeout(() => {
+                    closeMobileMenu();
+                }, 100);
             });
         });
 
-        // Close menu on escape key
+        // Close menu on escape key [^28^]
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                 closeMobileMenu();
             }
         });
+
+        // Handle resize - close menu when switching to desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Prevent touch events on overlay from passing through [^19^]
+        mobileMenuOverlay.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+        }, { passive: false });
 
         // Animated stats counter
         const animateStats = () => {
@@ -1687,12 +1759,10 @@
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             animateStats();
-        });
-
-        // Handle resize - close mobile menu when switching to desktop
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && mobileMenu.classList.contains('active')) {
-                closeMobileMenu();
+            
+            // Ensure hamburger is visible initially on mobile
+            if (window.innerWidth <= 768) {
+                toggleHamburger(true);
             }
         });
     </script>
