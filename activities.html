@@ -7,12 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
             background-color: #fefaf5;
@@ -21,12 +17,9 @@
             padding-top: 80px;
         }
 
-        /* Navbar */
         .navbar {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             background: #ffffff;
             box-shadow: 0 2px 20px rgba(0,0,0,0.08);
             z-index: 1000;
@@ -71,13 +64,11 @@
             transition: all 0.3s ease;
         }
 
-        .nav-links a:hover,
-        .nav-links a.active {
+        .nav-links a:hover, .nav-links a.active {
             background: #b71c1c;
             color: #ffffff;
         }
 
-        /* Container */
         .container {
             max-width: 1280px;
             margin: 0 auto;
@@ -93,11 +84,8 @@
             gap: 10px;
         }
 
-        h2 i {
-            color: #b71c1c;
-        }
+        h2 i { color: #b71c1c; }
 
-        /* Activities Grid */
         .activities-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -105,7 +93,6 @@
             margin-top: 2rem;
         }
 
-        /* Activity Card - Now Clickable */
         .activity-card {
             background: #ffffff;
             border-radius: 16px;
@@ -126,7 +113,6 @@
 
         .activity-image {
             height: 160px;
-            background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -174,20 +160,14 @@
             gap: 6px;
         }
 
-        /* Non-clickable card */
-        .activity-card-static {
-            background: #ffffff;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border: 1px solid #ffe0e0;
-        }
+        /* Different colors for each activity */
+        .bg-red { background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%); }
+        .bg-blue { background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%); }
+        .bg-green { background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%); }
+        .bg-orange { background: linear-gradient(135deg, #e65100 0%, #f57c00 100%); }
+        .bg-purple { background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%); }
+        .bg-teal { background: linear-gradient(135deg, #00695c 0%, #00796b 100%); }
 
-        .activity-card-static .activity-image {
-            background: linear-gradient(135deg, #666 0%, #888 100%);
-        }
-
-        /* Footer */
         footer {
             background: #1e2a2f;
             color: #ffffff;
@@ -203,17 +183,13 @@
             font-family: 'Noto Sans Bengali', sans-serif;
         }
 
-        /* Mobile */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -232,106 +208,92 @@
         </div>
     </nav>
 
-    <!-- Activities Section -->
     <div class="container">
         <h2><i class="fas fa-images"></i> Our Activities</h2>
         
         <div class="activities-grid">
             
-            <!-- 🔗 CLICKABLE: Monthly General Meeting -->
+            <!-- Monthly General Meeting -->
             <a href="monthly-meeting.html" class="activity-card">
-                <div class="activity-image">
+                <div class="activity-image bg-red">
                     <i class="fas fa-users"></i>
                 </div>
                 <div class="activity-content">
                     <h3>Monthly General Meeting</h3>
-                    <p class="activity-date">
-                        <i class="fas fa-calendar"></i> Every 2nd Saturday
-                    </p>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> Every 2nd Saturday</p>
                     <p class="activity-desc">Regular gathering of all volunteers to discuss activities and planning.</p>
                     <span class="read-more">View Details <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
 
-            <!-- 🔗 CLICKABLE: Training Program (example for future) -->
-            <!--
+            <!-- Training Program -->
             <a href="training-program.html" class="activity-card">
-                <div class="activity-image">
+                <div class="activity-image bg-blue">
                     <i class="fas fa-chalkboard-user"></i>
                 </div>
                 <div class="activity-content">
                     <h3>Training Program</h3>
                     <p class="activity-date"><i class="fas fa-calendar"></i> Quarterly</p>
-                    <p class="activity-desc">First aid and disaster response training.</p>
+                    <p class="activity-desc">First aid, CPR, and disaster response training for volunteers.</p>
                     <span class="read-more">View Details <i class="fas fa-arrow-right"></i></span>
                 </div>
             </a>
-            -->
 
-            <!-- Static: Training Program -->
-            <div class="activity-card-static">
-                <div class="activity-image">
-                    <i class="fas fa-chalkboard-user"></i>
-                </div>
-                <div class="activity-content">
-                    <h3>Training Program</h3>
-                    <p class="activity-date"><i class="fas fa-calendar"></i> Quarterly</p>
-                    <p class="activity-desc">First aid and disaster response training for volunteers.</p>
-                </div>
-            </div>
-
-            <!-- Static: Winter Distribution -->
-            <div class="activity-card-static">
-                <div class="activity-image">
+            <!-- Winter Distribution -->
+            <a href="winter-distribution.html" class="activity-card">
+                <div class="activity-image bg-orange">
                     <i class="fas fa-vest"></i>
                 </div>
                 <div class="activity-content">
                     <h3>Winter Distribution</h3>
                     <p class="activity-date"><i class="fas fa-calendar"></i> December - January</p>
-                    <p class="activity-desc">Distribution of warm clothes to underprivileged communities.</p>
+                    <p class="activity-desc">Distribution of warm clothes and blankets to underprivileged communities.</p>
+                    <span class="read-more">View Details <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </div>
+            </a>
 
-            <!-- Static: Tree Plantation -->
-            <div class="activity-card-static">
-                <div class="activity-image">
+            <!-- Tree Plantation -->
+            <a href="tree-plantation.html" class="activity-card">
+                <div class="activity-image bg-green">
                     <i class="fas fa-tree"></i>
                 </div>
                 <div class="activity-content">
                     <h3>Tree Plantation</h3>
                     <p class="activity-date"><i class="fas fa-calendar"></i> Year-round</p>
-                    <p class="activity-desc">Environmental awareness and tree planting drives.</p>
+                    <p class="activity-desc">Environmental awareness and tree planting drives for a greener future.</p>
+                    <span class="read-more">View Details <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </div>
+            </a>
 
-            <!-- Static: Mask Distribution -->
-            <div class="activity-card-static">
-                <div class="activity-image">
-                    <i class="fas fa-head-side-mask"></i>
-                </div>
-                <div class="activity-content">
-                    <h3>Mask Distribution</h3>
-                    <p class="activity-date"><i class="fas fa-calendar"></i> As needed</p>
-                    <p class="activity-desc">Free mask distribution for public health safety.</p>
-                </div>
-            </div>
-
-            <!-- Static: Awareness Program -->
-            <div class="activity-card-static">
-                <div class="activity-image">
+            <!-- Awareness Program -->
+            <a href="awareness-program.html" class="activity-card">
+                <div class="activity-image bg-purple">
                     <i class="fas fa-bullhorn"></i>
                 </div>
                 <div class="activity-content">
                     <h3>Awareness Program</h3>
                     <p class="activity-date"><i class="fas fa-calendar"></i> Monthly</p>
-                    <p class="activity-desc">Public health and safety awareness campaigns.</p>
+                    <p class="activity-desc">Public health, hygiene, and disaster preparedness awareness campaigns.</p>
+                    <span class="read-more">View Details <i class="fas fa-arrow-right"></i></span>
                 </div>
-            </div>
+            </a>
+
+            <!-- Mask Distribution -->
+            <a href="#" class="activity-card" onclick="alert('Page coming soon!'); return false;">
+                <div class="activity-image bg-teal">
+                    <i class="fas fa-head-side-mask"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Mask Distribution</h3>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> As needed</p>
+                    <p class="activity-desc">Free mask distribution for public health and safety.</p>
+                    <span class="read-more">Coming Soon <i class="fas fa-clock"></i></span>
+                </div>
+            </a>
 
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
         <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
