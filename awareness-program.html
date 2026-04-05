@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awareness Program | RCY Adamdighi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background-color: #fefaf5;
+            color: #1e2a2f;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #b71c1c;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e2a2f;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #b71c1c;
+            color: #ffffff;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #6a1b9a;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover { background: #f3e5f5; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            margin-top: 100px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #6a1b9a 0%, #8e24aa 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e1bee7;
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: #6a1b9a;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card h4 {
+            color: #5a6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-card p {
+            font-weight: 700;
+            color: #1e2a2f;
+            font-size: 1.1rem;
+        }
+
+        .content-section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .content-section h2 {
+            color: #6a1b9a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .topic-card {
+            background: #f3e5f5;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #6a1b9a;
+        }
+
+        .topic-card i {
+            font-size: 2rem;
+            color: #6a1b9a;
+            margin-bottom: 0.8rem;
+        }
+
+        .topic-card h4 {
+            margin-bottom: 0.5rem;
+            color: #1e2a2f;
+        }
+
+        .topic-card p {
+            color: #5a6b6b;
+            font-size: 0.9rem;
+        }
+
+        .method-list {
+            list-style: none;
+        }
+
+        .method-list li {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .method-list li:last-child { border-bottom: none; }
+
+        .method-list i {
+            color: #6a1b9a;
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+
+        .method-list h4 {
+            margin-bottom: 0.3rem;
+            color: #1e2a2f;
+        }
+
+        .method-list p {
+            color: #5a6b6b;
+            font-size: 0.95rem;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .photo-item {
+            aspect-ratio: 4/3;
+            background: #f5f5f5;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ddd;
+        }
+
+        .photo-item i {
+            font-size: 2.5rem;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-item span {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            background: #1e2a2f;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tagline {
+            color: #ffcd7e;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>RCY Adamdighi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="activities.html" class="active">Activities</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <a href="activities.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Activities
+        </a>
+
+        <div class="page-header">
+            <h1><i class="fas fa-bullhorn"></i> Awareness Program</h1>
+            <p class="subtitle">Educating community for a healthier, safer tomorrow</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>When</h4>
+                <p>Monthly</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Where</h4>
+                <p>Schools, Markets</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-users"></i>
+                <h4>Audience</h4>
+                <p>All Age Groups</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h4>Volunteers</h4>
+                <p>50+ Members</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-list-check"></i> Awareness Topics</h2>
+            <div class="topic-grid">
+                <div class="topic-card">
+                    <i class="fas fa-heart-pulse"></i>
+                    <h4>Health & Hygiene</h4>
+                    <p>Hand washing, sanitation, and disease prevention.</p>
+                </div>
+                <div class="topic-card">
+                    <i class="fas fa-shield-virus"></i>
+                    <h4>Disease Prevention</h4>
+                    <p>Dengue, malaria, COVID-19 awareness and prevention.</p>
+                </div>
+                <div class="topic-card">
+                    <i class="fas fa-droplet"></i>
+                    <h4>Safe Water</h4>
+                    <p>Clean drinking water and waterborne diseases.</p>
+                </div>
+                <div class="topic-card">
+                    <i class="fas fa-apple-alt"></i>
+                    <h4>Nutrition</h4>
+                    <p>Balanced diet, child nutrition, and healthy eating.</p>
+                </div>
+                <div class="topic-card">
+                    <i class="fas fa-kit-medical"></i>
+                    <h4>First Aid</h4>
+                    <p>Basic first aid knowledge for everyone.</p>
+                </div>
+                <div class="topic-card">
+                    <i class="fas fa-house-chimney-crack"></i>
+                    <h4>Disaster Preparedness</h4>
+                    <p>What to do during earthquake, flood, fire.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-microphone-lines"></i> Our Methods</h2>
+            <ul class="method-list">
+                <li>
+                    <i class="fas fa-chalkboard-user"></i>
+                    <div>
+                        <h4>School Sessions</h4>
+                        <p>Interactive sessions with students using posters and demonstrations.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-file-lines"></i>
+                    <div>
+                        <h4>Leaflet Distribution</h4>
+                        <p>Informative pamphlets distributed in markets and public places.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-music"></i>
+                    <div>
+                        <h4>Street Drama</h4>
+                        <p>Local cultural performances to spread health messages.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-video"></i>
+                    <div>
+                        <h4>Video Shows</h4>
+                        <p>Documentary and educational videos in community gatherings.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-comments"></i>
+                    <div>
+                        <h4>One-to-One Counseling</h4>
+                        <p>Personal guidance for specific health concerns.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-images"></i> Program Photos</h2>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>School Session 2025</span>
+                </div>
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>Market Campaign</span>
+                </div>
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>Street Drama</span>
+                </div>
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>Leaflet Distribution</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-chart-bar"></i> Impact 2024-2025</h2>
+            <ul class="method-list">
+                <li>
+                    <i class="fas fa-school" style="color: #6a1b9a;"></i>
+                    <div>
+                        <h4>25 Schools Reached</h4>
+                        <p>Awareness sessions conducted in 25+ educational institutions.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-users" style="color: #6a1b9a;"></i>
+                    <div>
+                        <h4>5,000+ People Educated</h4>
+                        <p>Direct beneficiaries of our awareness campaigns.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-file-alt" style="color: #6a1b9a;"></i>
+                    <div>
+                        <h4>10,000+ Leaflets Distributed</h4>
+                        <p>Health information materials shared with community.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+        <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
+    </footer>
+
+</body>
+</html>
