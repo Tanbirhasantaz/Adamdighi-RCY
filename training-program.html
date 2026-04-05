@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Program | RCY Adamdighi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background-color: #fefaf5;
+            color: #1e2a2f;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #b71c1c;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e2a2f;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #b71c1c;
+            color: #ffffff;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover { background: #e3f2fd; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            margin-top: 100px;
+        }
+
+        .page-header {
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #e3f2fd;
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: #1565c0;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card h4 {
+            color: #5a6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-card p {
+            font-weight: 700;
+            color: #1e2a2f;
+            font-size: 1.1rem;
+        }
+
+        .content-section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .content-section h2 {
+            color: #1565c0;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .training-list {
+            list-style: none;
+        }
+
+        .training-list li {
+            padding: 1.2rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .training-list li:last-child { border-bottom: none; }
+
+        .training-list i {
+            color: #1565c0;
+            font-size: 1.3rem;
+            margin-top: 3px;
+        }
+
+        .training-list h4 {
+            margin-bottom: 0.3rem;
+            color: #1e2a2f;
+        }
+
+        .training-list p {
+            color: #5a6b6b;
+            font-size: 0.95rem;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .photo-item {
+            aspect-ratio: 4/3;
+            background: #f5f5f5;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ddd;
+        }
+
+        .photo-item i {
+            font-size: 2.5rem;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-item span {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        footer {
+            background: #1e2a2f;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tagline {
+            color: #ffcd7e;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 1.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>RCY Adamdighi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="activities.html" class="active">Activities</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <a href="activities.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Activities
+        </a>
+
+        <div class="page-header">
+            <h1><i class="fas fa-chalkboard-user"></i> Training Program</h1>
+            <p class="subtitle">Building skilled volunteers for emergency response</p>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>Schedule</h4>
+                <p>Quarterly</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h4>Duration</h4>
+                <p>3 Days</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Location</h4>
+                <p>Adamdighi Upazila Hall</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-certificate"></i>
+                <h4>Certificate</h4>
+                <p>BDRCS Certified</p>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-book-open"></i> Training Modules</h2>
+            <ul class="training-list">
+                <li>
+                    <i class="fas fa-heart-pulse"></i>
+                    <div>
+                        <h4>Basic First Aid</h4>
+                        <p>Wound dressing, bandaging, bleeding control, and fracture management.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-lungs"></i>
+                    <div>
+                        <h4>CPR & AED</h4>
+                        <p>Cardiopulmonary resuscitation and automated external defibrillator use.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-house-chimney-crack"></i>
+                    <div>
+                        <h4>Disaster Response</h4>
+                        <p>Earthquake, flood, and fire emergency response techniques.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-truck-medical"></i>
+                    <div>
+                        <h4>Emergency Transport</h4>
+                        <p>Patient carrying methods and stretcher handling.</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-kit-medical"></i>
+                    <div>
+                        <h4>First Aid Kit</h4>
+                        <p>Kit preparation, maintenance, and supply management.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-images"></i> Training Photos</h2>
+            <div class="photo-grid">
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>First Aid Practice</span>
+                </div>
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>CPR Training</span>
+                </div>
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>Group Exercise</span>
+                </div>
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>Certificate Distribution</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2><i class="fas fa-graduation-cap"></i> Recent Training</h2>
+            <p style="margin-bottom: 1rem;"><strong>Latest:</strong> 3-Day Basic First Aid Training (January 8-10, 2026)</p>
+            <p style="color: #5a6b6b;">50+ volunteers participated from 15 institutions. Training conducted by certified BDRCS instructors.</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+        <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
+    </footer>
+
+</body>
+</html>
