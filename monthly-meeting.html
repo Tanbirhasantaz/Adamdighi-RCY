@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly General Meeting | RCY Adamdighi</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background-color: #fefaf5;
+            color: #1e2a2f;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #b71c1c;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e2a2f;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #b71c1c;
+            color: #ffffff;
+        }
+
+        /* Back Button */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #b71c1c;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #ffebee;
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Meeting Header */
+        .meeting-header {
+            background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .meeting-header h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .meeting-header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Meeting Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            padding: 1.5rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            border: 1px solid #ffe0e0;
+        }
+
+        .info-card i {
+            font-size: 2rem;
+            color: #b71c1c;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card h4 {
+            color: #5a6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .info-card p {
+            font-weight: 700;
+            color: #1e2a2f;
+            font-size: 1.1rem;
+        }
+
+        /* Photo Gallery */
+        .photo-section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .photo-section h2 {
+            color: #b71c1c;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .photo-item {
+            aspect-ratio: 4/3;
+            background: #f5f5f5;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ddd;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .photo-item i {
+            font-size: 3rem;
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-item span {
+            color: #999;
+            font-size: 0.85rem;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Meeting Details */
+        .details-section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .details-section h2 {
+            color: #b71c1c;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .agenda-list {
+            list-style: none;
+        }
+
+        .agenda-list li {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .agenda-list li:last-child {
+            border-bottom: none;
+        }
+
+        .agenda-list i {
+            color: #b71c1c;
+            margin-top: 4px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e2a2f;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tagline {
+            color: #ffcd7e;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .meeting-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>RCY Adamdighi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="activities.html" class="active">Activities</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container" style="margin-top: 100px;">
+        
+        <!-- Back Button -->
+        <a href="activities.html" class="back-btn">
+            <i class="fas fa-arrow-left"></i> Back to Activities
+        </a>
+
+        <!-- Meeting Header -->
+        <div class="meeting-header">
+            <h1><i class="fas fa-users"></i> Monthly General Meeting</h1>
+            <p class="subtitle">Regular gathering of all RCY Adamdighi volunteers</p>
+        </div>
+
+        <!-- Meeting Info -->
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h4>Meeting Date</h4>
+                <p>Every 2nd Saturday</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h4>Time</h4>
+                <p>10:00 AM - 12:00 PM</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h4>Location</h4>
+                <p>Adamdighi Upazila Office</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-user-friends"></i>
+                <h4>Attendees</h4>
+                <p>All Volunteers</p>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="photo-section">
+            <h2><i class="fas fa-images"></i> Meeting Photos</h2>
+            <div class="photo-grid">
+                <!-- Photo 1 -->
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>January 2026 Meeting</span>
+                    <!-- Replace with actual image: <img src="images/meeting-jan-2026.jpg" alt="January Meeting"> -->
+                </div>
+                <!-- Photo 2 -->
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>December 2025 Meeting</span>
+                    <!-- Replace with actual image: <img src="images/meeting-dec-2025.jpg" alt="December Meeting"> -->
+                </div>
+                <!-- Photo 3 -->
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>November 2025 Meeting</span>
+                    <!-- Replace with actual image: <img src="images/meeting-nov-2025.jpg" alt="November Meeting"> -->
+                </div>
+                <!-- Photo 4 -->
+                <div class="photo-item">
+                    <i class="fas fa-image"></i>
+                    <span>Group Discussion</span>
+                    <!-- Replace with actual image: <img src="images/discussion.jpg" alt="Discussion"> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Meeting Agenda -->
+        <div class="details-section">
+            <h2><i class="fas fa-list-check"></i> Meeting Agenda</h2>
+            <ul class="agenda-list">
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Previous Month Review</strong>
+                        <p style="color: #5a6b6b; font-size: 0.95rem;">Discussion of completed activities and achievements</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Upcoming Event Planning</strong>
+                        <p style="color: #5a6b6b; font-size: 0.95rem;">Planning for next month's programs and activities</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Volunteer Updates</strong>
+                        <p style="color: #5a6b6b; font-size: 0.95rem;">New member introductions and volunteer reports</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Training Announcements</strong>
+                        <p style="color: #5a6b6b; font-size: 0.95rem;">Upcoming first aid and disaster response training</p>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-check-circle"></i>
+                    <div>
+                        <strong>Q&A and Feedback</strong>
+                        <p style="color: #5a6b6b; font-size: 0.95rem;">Open discussion and suggestions from volunteers</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+        <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
+    </footer>
+
+</body>
+</html>
