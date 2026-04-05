@@ -1,182 +1,341 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Activities | RCY Adamdighi</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background-color: #fefaf5;
+            color: #1e2a2f;
+            line-height: 1.6;
+            padding-top: 80px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #b71c1c;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e2a2f;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: #b71c1c;
+            color: #ffffff;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            margin-top: 100px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2 i {
+            color: #b71c1c;
+        }
+
+        /* Activities Grid */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        /* Activity Card - Now Clickable */
+        .activity-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #ffe0e0;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(183,28,28,0.15);
+            border-color: #b71c1c;
+        }
+
+        .activity-image {
+            height: 160px;
+            background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .activity-image i {
+            font-size: 3.5rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .activity-content {
+            padding: 1.5rem;
+        }
+
+        .activity-content h3 {
+            color: #b71c1c;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .activity-date {
+            color: #5a6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .activity-date i {
+            color: #b71c1c;
+            margin-right: 6px;
+        }
+
+        .activity-desc {
+            color: #5a6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .read-more {
+            color: #b71c1c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Non-clickable card */
+        .activity-card-static {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #ffe0e0;
+        }
+
+        .activity-card-static .activity-image {
+            background: linear-gradient(135deg, #666 0%, #888 100%);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e2a2f;
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tagline {
+            color: #ffcd7e;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
     <nav class="navbar">
-      <div class="container">
-        <a href="index.html" class="logo">
-          <i class="fas fa-hand-holding-heart"></i>
-          <span>RCY Adamdighi</span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li>
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-          </li>
-          <li>
-            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-          </li>
-          <li>
-            <a href="activities.html" class="active"
-              ><i class="fas fa-images"></i> Activities</a
-            >
-          </li>
-          <li>
-            <a href="library.html"><i class="fas fa-book-open"></i> Library</a>
-          </li>
-          <li>
-            <a href="notices.html"><i class="fas fa-bullhorn"></i> Notices</a>
-          </li>
-          <li>
-            <a href="partners.html"
-              ><i class="fas fa-handshake"></i> Partners</a
-            >
-          </li>
-          <li>
-            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-          </li>
-        </ul>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>RCY Adamdighi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="activities.html" class="active">Activities</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
+    <!-- Activities Section -->
     <div class="container">
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-images"></i> Our Activities
-          </h2>
-          <p style="color: var(--text-muted); margin-top: 0.5rem">
-            Glimpses of our humanitarian work and community service
-          </p>
-        </div>
+        <h2><i class="fas fa-images"></i> Our Activities</h2>
+        
+        <div class="activities-grid">
+            
+            <!-- 🔗 CLICKABLE: Monthly General Meeting -->
+            <a href="monthly-meeting.html" class="activity-card">
+                <div class="activity-image">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Monthly General Meeting</h3>
+                    <p class="activity-date">
+                        <i class="fas fa-calendar"></i> Every 2nd Saturday
+                    </p>
+                    <p class="activity-desc">Regular gathering of all volunteers to discuss activities and planning.</p>
+                    <span class="read-more">View Details <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
 
-        <div class="gallery" id="activityGallery">
-          <!-- Populated by JS -->
-        </div>
-      </section>
+            <!-- 🔗 CLICKABLE: Training Program (example for future) -->
+            <!--
+            <a href="training-program.html" class="activity-card">
+                <div class="activity-image">
+                    <i class="fas fa-chalkboard-user"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Training Program</h3>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> Quarterly</p>
+                    <p class="activity-desc">First aid and disaster response training.</p>
+                    <span class="read-more">View Details <i class="fas fa-arrow-right"></i></span>
+                </div>
+            </a>
+            -->
 
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-calendar-check"></i> Recent Events
-          </h2>
+            <!-- Static: Training Program -->
+            <div class="activity-card-static">
+                <div class="activity-image">
+                    <i class="fas fa-chalkboard-user"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Training Program</h3>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> Quarterly</p>
+                    <p class="activity-desc">First aid and disaster response training for volunteers.</p>
+                </div>
+            </div>
+
+            <!-- Static: Winter Distribution -->
+            <div class="activity-card-static">
+                <div class="activity-image">
+                    <i class="fas fa-vest"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Winter Distribution</h3>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> December - January</p>
+                    <p class="activity-desc">Distribution of warm clothes to underprivileged communities.</p>
+                </div>
+            </div>
+
+            <!-- Static: Tree Plantation -->
+            <div class="activity-card-static">
+                <div class="activity-image">
+                    <i class="fas fa-tree"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Tree Plantation</h3>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> Year-round</p>
+                    <p class="activity-desc">Environmental awareness and tree planting drives.</p>
+                </div>
+            </div>
+
+            <!-- Static: Mask Distribution -->
+            <div class="activity-card-static">
+                <div class="activity-image">
+                    <i class="fas fa-head-side-mask"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Mask Distribution</h3>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> As needed</p>
+                    <p class="activity-desc">Free mask distribution for public health safety.</p>
+                </div>
+            </div>
+
+            <!-- Static: Awareness Program -->
+            <div class="activity-card-static">
+                <div class="activity-image">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <div class="activity-content">
+                    <h3>Awareness Program</h3>
+                    <p class="activity-date"><i class="fas fa-calendar"></i> Monthly</p>
+                    <p class="activity-desc">Public health and safety awareness campaigns.</p>
+                </div>
+            </div>
+
         </div>
-        <div class="card-grid">
-          <div class="card">
-            <div
-              style="
-                background: var(--rc-red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                display: inline-block;
-                font-size: 0.85rem;
-                margin-bottom: 1rem;
-              "
-            >
-              Jan 8-10, 2026
-            </div>
-            <h3>3-Day Basic First Aid Training</h3>
-            <p>
-              Comprehensive first aid training program for volunteers covering
-              emergency response, wound care, and CPR techniques.
-            </p>
-          </div>
-          <div class="card">
-            <div
-              style="
-                background: var(--rc-red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                display: inline-block;
-                font-size: 0.85rem;
-                margin-bottom: 1rem;
-              "
-            >
-              Dec 2025
-            </div>
-            <h3>Winter Clothes Distribution</h3>
-            <p>
-              Distribution of warm clothes to underprivileged communities in
-              Gucchagram and surrounding areas.
-            </p>
-          </div>
-          <div class="card">
-            <div
-              style="
-                background: var(--rc-red);
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 20px;
-                display: inline-block;
-                font-size: 0.85rem;
-                margin-bottom: 1rem;
-              "
-            >
-              Nov 2025
-            </div>
-            <h3>Tree Plantation Drive</h3>
-            <p>
-              Environmental awareness program with tree plantation activities
-              across multiple institutions.
-            </p>
-          </div>
-        </div>
-      </section>
     </div>
 
+    <!-- Footer -->
     <footer>
-      <div class="container">
-        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া</p>
-        <p class="tagline">
-          <i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায়
-          নিবেদিত
-        </p>
-      </div>
+        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+        <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script>
-      const activities = [
-        { name: "Training program", icon: "fas fa-chalkboard-user" },
-        { name: "Monthly General Meeting", icon: "fas fa-users" },
-        { name: "Upazila Leaders meet up", icon: "fas fa-handshake" },
-        { name: "Meeting with Institution Head", icon: "fas fa-building" },
-        { name: "Winter clothes distribution", icon: "fas fa-vest" },
-        { name: "Group photo of volunteers", icon: "fas fa-camera-retro" },
-        { name: "Mask Distribution", icon: "fas fa-head-side-mask" },
-        { name: "Public awareness program", icon: "fas fa-bullhorn" },
-        { name: "Tree plantation", icon: "fas fa-tree" },
-        { name: "Prize giving ceremony", icon: "fas fa-award" },
-      ];
-
-      const gallery = document.getElementById("activityGallery");
-      gallery.innerHTML = activities
-        .map(
-          (act) => `
-            <div class="gallery-item" onclick="showToast('${act.name} - Gallery coming soon')">
-                <i class="${act.icon}"></i>
-                <span>${act.name}</span>
-            </div>
-        `,
-        )
-        .join("");
-    </script>
-  </body>
+</body>
 </html>
