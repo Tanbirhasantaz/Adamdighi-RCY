@@ -22,7 +22,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
@@ -126,13 +126,33 @@
             transform: translateY(-2px);
         }
 
-        .success-msg {
-            display: none;
-            background: #d4edda;
-            color: #155724;
+        button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .alert {
             padding: 1rem;
             border-radius: 12px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            display: none;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
         }
 
         .info-box {
@@ -155,6 +175,13 @@
             padding: 2rem;
             margin-top: 3rem;
         }
+
+        .tagline {
+            color: #ffcd7e;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            font-family: 'Noto Sans Bengali', sans-serif;
+        }
     </style>
 </head>
 <body>
@@ -176,22 +203,42 @@
                 <p><i class="fas fa-info-circle"></i> <strong>Email:</strong> rcyadamdighi@gmail.com</p>
             </div>
 
-            <!-- NETLIFY FORM - CRITICAL: Must have these exact attributes -->
+            <!-- Success/Error Messages -->
+            <div id="successMsg" class="alert alert-success">
+                <i class="fas fa-check-circle"></i> Message sent successfully! We'll contact you soon.
+            </div>
+
+            <div id="errorMsg" class="alert alert-error">
+                <i class="fas fa-exclamation-circle"></i> Failed to send. Please try again or email us directly.
+            </div>
+
+            <!-- NETLIFY FORM - 2025 Updated Version -->
+            <!-- CRITICAL: Must use data-netlify="true" (not just netlify) -->
             <form 
                 name="contact" 
                 method="POST" 
-                netlify
-                netlify-honeypot="bot-field"
-                action="/thank-you.html"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                action="/success.html"
+                id="contactForm"
             >
                 
-                <!-- Honeypot (anti-spam) - HIDDEN from users -->
+                <!-- Honeypot - Hidden from users, catches bots -->
                 <div style="display: none;">
-                    <label>Don't fill this out: <input name="bot-field" /></label>
+                    <label>Don't fill this out if you're human: 
+                        <input name="bot-field" />
+                    </label>
                 </div>
 
-                <!-- Hidden form name for Netlify -->
+                <!-- Required hidden input for Netlify 2025 -->
                 <input type="hidden" name="form-name" value="contact">
+
+                <!-- Email Subject Line (customize what you receive) -->
+                <input 
+                    type="hidden" 
+                    name="subject" 
+                    value="New Contact from RCY Adamdighi Website"
+                >
 
                 <div class="form-group">
                     <label><i class="fas fa-user"></i> Your Name</label>
@@ -224,7 +271,7 @@
 
                 <div class="form-group">
                     <label><i class="fas fa-tag"></i> Subject</label>
-                    <select name="subject" required>
+                    <select name="subject_type" required>
                         <option value="">Select subject...</option>
                         <option value="join">I want to join RCY</option>
                         <option value="donate">Donation</option>
@@ -242,7 +289,7 @@
                     ></textarea>
                 </div>
 
-                <button type="submit">
+                <button type="submit" id="submitBtn">
                     <i class="fas fa-paper-plane"></i> Send Message
                 </button>
 
@@ -252,11 +299,53 @@
     </div>
 
     <footer>
-        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া</p>
-        <p style="color: #ffcd7e; margin-top: 0.5rem;">
-            <i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত
-        </p>
+        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+        <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
     </footer>
+
+    <!-- JavaScript for AJAX submission -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = document.getElementById('submitBtn');
+            const successMsg = document.getElementById('successMsg');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            // Show loading
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            // Hide previous messages
+            successMsg.classList.remove('show');
+            errorMsg.classList.remove('show');
+            
+            // Submit via AJAX
+            fetch('/', {
+                method: 'POST',
+                headers: { 
+                    'Content-Type': 'application/x-www-form-urlencoded' 
+                },
+                body: new URLSearchParams(new FormData(this)).toString()
+            })
+            .then(response => {
+                if (response.ok) {
+                    successMsg.classList.add('show');
+                    this.reset();
+                } else {
+                    throw new Error('Submission failed');
+                }
+            })
+            .catch(error => {
+                errorMsg.classList.add('show');
+                console.error('Form error:', error);
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            });
+        });
+    </script>
 
 </body>
 </html>
