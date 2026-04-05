@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | RCY Adamdighi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -13,10 +13,24 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary: #b71c1c;
+            --primary-light: #d32f2f;
+            --primary-dark: #8b0000;
+            --secondary: #ffcd7e;
+            --bg: #fefaf5;
+            --white: #ffffff;
+            --text: #1e2a2f;
+            --text-light: #5a6b6b;
+            --border: #e8e8e8;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(183,28,28,0.15);
+        }
+
         body {
             font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
-            background-color: #fefaf5;
-            color: #1e2a2f;
+            background: var(--bg);
+            color: var(--text);
             line-height: 1.6;
         }
 
@@ -26,8 +40,8 @@
             top: 0;
             left: 0;
             right: 0;
-            background: #ffffff;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            background: var(--white);
+            box-shadow: var(--shadow);
             z-index: 1000;
             height: 70px;
             display: flex;
@@ -49,13 +63,9 @@
             align-items: center;
             gap: 10px;
             text-decoration: none;
-            color: #b71c1c;
+            color: var(--primary);
             font-weight: 800;
             font-size: 1.3rem;
-        }
-
-        .logo i {
-            font-size: 1.8rem;
         }
 
         .nav-links {
@@ -66,93 +76,198 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #1e2a2f;
+            color: var(--text);
             font-weight: 600;
             font-size: 0.9rem;
             padding: 0.5rem 1rem;
             border-radius: 50px;
             transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
             cursor: pointer;
         }
 
-        .nav-links a:hover {
-            background: #b71c1c;
-            color: #ffffff;
+        /* Hero Section */
+        .contact-hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
         }
 
-        /* Container */
+        .contact-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
         .container {
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 1.5rem;
-            margin-top: 100px;
         }
 
         /* Contact Grid */
-        .contact-grid {
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: start;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            margin: -3rem auto 4rem;
+            position: relative;
+            z-index: 10;
         }
 
-        /* Contact Info */
-        .contact-info {
+        /* Info Cards */
+        .info-panel {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1.2rem;
-            background: #ffffff;
+        .info-card {
+            background: var(--white);
+            padding: 1.5rem;
             border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-            border: 1px solid #ffe0e0;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .contact-item i {
+        .info-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .info-icon {
             width: 50px;
             height: 50px;
-            background: #b71c1c;
-            color: #ffffff;
-            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            flex-shrink: 0;
         }
 
-        .contact-item h4 {
+        .info-content h3 {
+            font-size: 1rem;
+            font-weight: 700;
             margin-bottom: 0.3rem;
-            color: #1e2a2f;
+            color: var(--text);
         }
 
-        .contact-item p {
-            color: #5a6b6b;
+        .info-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .info-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .info-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Social Links */
+        .social-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            margin-top: 1rem;
+        }
+
+        .social-card h3 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: var(--bg);
+            color: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Form Panel */
+        .form-panel {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: var(--text-light);
             font-size: 0.95rem;
         }
 
-        /* Card */
-        .card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            border: 1px solid #ffe0e0;
+        /* Form Fields */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .card h2 {
-            color: #b71c1c;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            font-size: 1.5rem;
-        }
-
-        /* Form */
         .form-group {
             margin-bottom: 1.2rem;
         }
@@ -161,112 +276,173 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: #1e2a2f;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            color: var(--text);
         }
 
         .form-group label i {
-            color: #b71c1c;
+            color: var(--primary);
             margin-right: 6px;
+            font-size: 0.85rem;
         }
 
-        .form-group input,
-        .form-group textarea {
+        .form-control {
             width: 100%;
             padding: 0.9rem 1rem;
-            border: 2px solid #e8e8e8;
+            border: 2px solid var(--border);
             border-radius: 12px;
             font-family: inherit;
             font-size: 1rem;
             transition: all 0.3s ease;
+            background: var(--bg);
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
+        .form-control:focus {
             outline: none;
-            border-color: #b71c1c;
-            box-shadow: 0 0 0 3px rgba(183,28,28,0.1);
+            border-color: var(--primary);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(183,28,28,0.1);
         }
 
-        .form-group textarea {
+        textarea.form-control {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
-        /* Button */
-        .btn {
-            display: inline-flex;
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            border: none;
-            cursor: pointer;
             transition: all 0.3s ease;
-            width: 100%;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
+        .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(183,28,28,0.3);
+            box-shadow: var(--shadow-hover);
         }
 
-        .btn-primary:disabled {
+        .btn-submit:disabled {
             opacity: 0.7;
             cursor: not-allowed;
             transform: none;
         }
 
-        /* Status Message */
-        .status-message {
-            margin-top: 1rem;
-            padding: 1rem;
+        /* Status Messages */
+        .alert {
+            padding: 1rem 1.2rem;
             border-radius: 12px;
-            text-align: center;
+            margin-bottom: 1.5rem;
             display: none;
+            align-items: center;
+            gap: 10px;
         }
 
-        .status-message.success {
-            display: block;
+        .alert.show {
+            display: flex;
+        }
+
+        .alert-success {
             background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
 
-        .status-message.error {
-            display: block;
+        .alert-error {
             background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
 
+        /* Map Section */
+        .map-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 4rem;
+        }
+
+        .map-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .map-section h2 i {
+            color: var(--primary);
+        }
+
+        .map-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #e8e8e8 0%, #f5f5f5 100%);
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #ccc;
+        }
+
+        .map-placeholder i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .map-placeholder p {
+            color: var(--text-light);
+        }
+
         /* Footer */
         footer {
-            background: #1e2a2f;
-            color: #ffffff;
+            background: var(--text);
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
+            padding: 2.5rem 1.5rem;
         }
 
         .tagline {
-            color: #ffcd7e;
+            color: var(--secondary);
             font-weight: 600;
             margin-top: 0.5rem;
             font-family: 'Noto Sans Bengali', sans-serif;
         }
 
         /* Mobile Responsive */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .info-panel {
+                order: 2;
+            }
+
+            .form-panel {
+                order: 1;
+            }
+        }
+
         @media (max-width: 768px) {
-            .contact-grid {
+            .contact-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-row {
                 grid-template-columns: 1fr;
             }
 
@@ -274,7 +450,11 @@
                 display: none;
             }
 
-            .card {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .form-panel {
                 padding: 1.5rem;
             }
         }
@@ -282,7 +462,7 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -296,161 +476,191 @@
                 <li><a href="library.html">Library</a></li>
                 <li><a href="notices.html">Notices</a></li>
                 <li><a href="partners.html">Partners</a></li>
-                <li><a href="contact.html" style="background: #b71c1c; color: #fff;">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Contact Section -->
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <h1><i class="fas fa-envelope"></i> Get in Touch</h1>
+        <p>Have questions or want to join our mission? We'd love to hear from you. Reach out and we'll respond as soon as possible.</p>
+    </section>
+
+    <!-- Main Contact Section -->
     <div class="container">
-        <div class="contact-grid">
+        <div class="contact-wrapper">
             
-            <!-- Contact Info -->
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <h4>Email</h4>
-                        <p>rcyadamdighi@gmail.com</p>
+            <!-- Left: Contact Info -->
+            <div class="info-panel">
+                
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:rcyadamdighi@gmail.com">rcyadamdighi@gmail.com</a></p>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">We reply within 24 hours</p>
                     </div>
                 </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h4>Location</h4>
-                        <p>Adamdighi Upazila, Bogura District<br>Rajshahi Division, Bangladesh</p>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Visit Us</h3>
+                        <p>Adamdighi Upazila<br>Bogura District, Rajshahi<br>Bangladesh</p>
                     </div>
                 </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <h4>Office Hours</h4>
-                        <p>Saturday - Thursday: 9:00 AM - 5:00 PM</p>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Office Hours</h3>
+                        <p>Saturday - Thursday<br>9:00 AM - 5:00 PM</p>
                     </div>
                 </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-phone"></i>
-                    <div>
-                        <h4>Phone</h4>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-content">
+                        <h3>Call Us</h3>
                         <p>+880 1XXX-XXXXXX</p>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">During office hours</p>
                     </div>
                 </div>
+
+                <!-- Social Media -->
+                <div class="social-card">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- Contact Form -->
-            <div class="card">
-                <h2>
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </h2>
+            <!-- Right: Contact Form -->
+            <div class="form-panel">
                 
-                <!-- YOUR FORMSPREE FORM -->
+                <div class="form-header">
+                    <h2>Send us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you shortly.</p>
+                </div>
+
+                <!-- Success/Error Messages -->
+                <div id="successAlert" class="alert alert-success">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Message sent successfully! We'll contact you soon.</span>
+                </div>
+
+                <div id="errorAlert" class="alert alert-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Something went wrong. Please try again.</span>
+                </div>
+
+                <!-- Formspree Form -->
                 <form id="contactForm" action="https://formspree.io/f/xwvwwlqe" method="POST">
                     
-                    <!-- Name -->
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-user"></i> Your Name
-                        </label>
-                        <input 
-                            type="text" 
-                            name="name" 
-                            placeholder="Enter your full name" 
-                            required
-                        >
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> First Name</label>
+                            <input type="text" name="firstName" class="form-control" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> Last Name</label>
+                            <input type="text" name="lastName" class="form-control" placeholder="Doe" required>
+                        </div>
                     </div>
 
-                    <!-- Email -->
                     <div class="form-group">
-                        <label>
-                            <i class="fas fa-envelope"></i> Your Email
-                        </label>
-                        <input 
-                            type="email" 
-                            name="email" 
-                            placeholder="your@email.com" 
-                            required
-                        >
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="john@example.com" required>
                     </div>
 
-                    <!-- Subject -->
                     <div class="form-group">
-                        <label>
-                            <i class="fas fa-tag"></i> Subject
-                        </label>
-                        <input 
-                            type="text" 
-                            name="subject" 
-                            placeholder="Message subject" 
-                            required
-                        >
+                        <label><i class="fas fa-phone"></i> Phone Number (Optional)</label>
+                        <input type="tel" name="phone" class="form-control" placeholder="+880 1XXX-XXXXXX">
                     </div>
 
-                    <!-- Message -->
                     <div class="form-group">
-                        <label>
-                            <i class="fas fa-comment"></i> Message
-                        </label>
-                        <textarea 
-                            name="message" 
-                            placeholder="Write your message here..." 
-                            required
-                        ></textarea>
+                        <label><i class="fas fa-tag"></i> Subject</label>
+                        <select name="subject" class="form-control" required>
+                            <option value="">Select a subject...</option>
+                            <option value="join">I want to join RCY</option>
+                            <option value="donate">Donation Inquiry</option>
+                            <option value="volunteer">Volunteer Opportunity</option>
+                            <option value="training">Training Information</option>
+                            <option value="other">Other</option>
+                        </select>
                     </div>
 
-                    <!-- Hidden fields for Formspree -->
-                    <input type="hidden" name="_subject" value="New message from RCY Adamdighi Website">
+                    <div class="form-group">
+                        <label><i class="fas fa-comment"></i> Your Message</label>
+                        <textarea name="message" class="form-control" placeholder="Write your message here..." required></textarea>
+                    </div>
+
+                    <!-- Hidden fields -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - RCY Adamdighi">
                     <input type="hidden" name="_replyto" value="rcyadamdighi@gmail.com">
-                    
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary" id="submitBtn">
+
+                    <button type="submit" class="btn-submit" id="submitBtn">
                         <i class="fas fa-paper-plane"></i> Send Message
                     </button>
 
                 </form>
 
-                <!-- Status Messages -->
-                <div id="successMessage" class="status-message success">
-                    <i class="fas fa-check-circle"></i> 
-                    <strong>Success!</strong> Your message has been sent. We'll get back to you soon!
-                </div>
-                
-                <div id="errorMessage" class="status-message error">
-                    <i class="fas fa-exclamation-circle"></i> 
-                    <strong>Error!</strong> Something went wrong. Please try again.
-                </div>
+            </div>
 
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <h2><i class="fas fa-map"></i> Our Location</h2>
+            <div class="map-placeholder">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>Adamdighi Upazila, Bogura, Bangladesh</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Map integration coming soon</p>
             </div>
         </div>
+
     </div>
 
     <!-- Footer -->
     <footer>
         <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
-        <p class="tagline">
-            <i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত
-        </p>
+        <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
     </footer>
 
-    <!-- JavaScript for Form Handling -->
+    <!-- JavaScript -->
     <script>
         const form = document.getElementById('contactForm');
         const submitBtn = document.getElementById('submitBtn');
-        const successMsg = document.getElementById('successMessage');
-        const errorMsg = document.getElementById('errorMessage');
+        const successAlert = document.getElementById('successAlert');
+        const errorAlert = document.getElementById('errorAlert');
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Show loading state
+            // Show loading
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             
-            // Hide previous messages
-            successMsg.classList.remove('success');
-            errorMsg.classList.remove('error');
+            // Hide previous alerts
+            successAlert.classList.remove('show');
+            errorAlert.classList.remove('show');
             
             try {
                 const response = await fetch(form.action, {
@@ -462,19 +672,15 @@
                 });
                 
                 if (response.ok) {
-                    // Success
-                    successMsg.classList.add('success');
+                    successAlert.classList.add('show');
                     form.reset();
                 } else {
-                    // Error
-                    throw new Error('Form submission failed');
+                    throw new Error('Failed to send');
                 }
                 
             } catch (error) {
-                // Error
-                errorMsg.classList.add('error');
+                errorAlert.classList.add('show');
             } finally {
-                // Reset button
                 submitBtn.disabled = false;
                 submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
             }
