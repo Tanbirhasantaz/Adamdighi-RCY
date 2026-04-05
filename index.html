@@ -1,192 +1,1343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Red Crescent Youth Adamdighi - Youth humanitarian organization in Bogura, Bangladesh"
-    />
-    <title>Home | RCY Adamdighi</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-      <div class="container">
-        <a href="index.html" class="logo">
-          <i class="fas fa-hand-holding-heart"></i>
-          <span>RCY Adamdighi</span>
-        </a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCY Adamdighi | Red Crescent Youth - Bogura</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #b71c1c;
+            --primary-light: #d32f2f;
+            --primary-dark: #8b0000;
+            --secondary: #ffcd7e;
+            --accent: #ff6b6b;
+            --dark: #0f0f0f;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+            --text: #1a1a2e;
+            --text-light: #64748b;
+            --gradient: linear-gradient(135deg, #b71c1c 0%, #d32f2f 50%, #ff6b6b 100%);
+            --gradient-dark: linear-gradient(135deg, #8b0000 0%, #b71c1c 100%);
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-sm: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
 
-        <ul class="nav-links" id="navLinks">
-          <li>
-            <a href="index.html" class="active"
-              ><i class="fas fa-home"></i> Home</a
-            >
-          </li>
-          <li>
-            <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-          </li>
-          <li>
-            <a href="activities.html"
-              ><i class="fas fa-images"></i> Activities</a
-            >
-          </li>
-          <li>
-            <a href="library.html"><i class="fas fa-book-open"></i> Library</a>
-          </li>
-          <li>
-            <a href="notices.html"><i class="fas fa-bullhorn"></i> Notices</a>
-          </li>
-          <li>
-            <a href="partners.html"
-              ><i class="fas fa-handshake"></i> Partners</a
-            >
-          </li>
-          <li>
-            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-          </li>
-        </ul>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </nav>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    <div class="container">
-      <!-- Hero -->
-      <section class="hero">
-        <div class="hero-content">
-          <h1><i class="fas fa-hand-holding-heart"></i> rcyadamdighi.com</h1>
-          <div class="bn-title">
-            <i class="fas fa-map-marker-alt"></i>
-            আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া
-          </div>
-          <p class="hero-description">
-            <strong>Red Crescent Youth, Adamdighi Upazila</strong> is an Upazila
-            team of Red Crescent Youth, Bogura Unit. Officially working in
-            Adamdighi Upazila since <strong>June 2021</strong>. The Red Crescent
-            Movement is an international humanitarian movement dedicated to
-            serving humanity.
-          </p>
-          <div style="margin-top: 1.5rem">
-            <a href="about.html" class="btn btn-secondary">Learn More</a>
-            <a
-              href="contact.html"
-              class="btn btn-primary"
-              style="margin-left: 1rem"
-              >Join Us</a
-            >
-          </div>
-        </div>
-      </section>
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-      <!-- Stats -->
-      <section class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number" data-target="900" data-suffix="+">0</div>
-          <div class="stat-label">Institutional Volunteers</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="50" data-suffix="+">0</div>
-          <div class="stat-label">Upazila Volunteers</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="15" data-suffix="">0</div>
-          <div class="stat-label">Executive Members</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="1000" data-suffix="+">0</div>
-          <div class="stat-label">Total Volunteers</div>
-        </div>
-      </section>
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(183,28,28,0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255,205,126,0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(255,107,107,0.05) 0%, transparent 70%);
+            animation: bgPulse 8s ease-in-out infinite;
+        }
 
-      <!-- Quick Links -->
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-compass"></i> Quick Access
-          </h2>
-        </div>
-        <div class="card-grid">
-          <a
-            href="library.html"
-            class="card"
-            style="text-decoration: none; color: inherit"
-          >
-            <div class="card-icon"><i class="fas fa-book-open"></i></div>
-            <h3>Online Library</h3>
-            <p>
-              Access first aid guides, brand guidelines, and training materials.
-            </p>
-          </a>
-          <a
-            href="activities.html"
-            class="card"
-            style="text-decoration: none; color: inherit"
-          >
-            <div class="card-icon"><i class="fas fa-images"></i></div>
-            <h3>Our Activities</h3>
-            <p>
-              Explore our humanitarian work, training programs, and community
-              service.
-            </p>
-          </a>
-          <a
-            href="notices.html"
-            class="card"
-            style="text-decoration: none; color: inherit"
-          >
-            <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
-            <h3>Latest Notices</h3>
-            <p>
-              Stay updated with upcoming events, meetings, and announcements.
-            </p>
-          </a>
-        </div>
-      </section>
+        @keyframes bgPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
 
-      <!-- Latest Notice -->
-      <div class="notice-alert">
-        <i class="fas fa-bell"></i>
-        <div class="notice-content">
-          <h3>Latest Update</h3>
-          <p>
-            3-day Basic First Aid Training program was successfully held from
-            January 8-10, 2026.
-            <a
-              href="activities.html"
-              style="color: var(--rc-red); font-weight: 600"
-              >View →</a
-            >
-          </p>
-        </div>
-      </div>
+        /* Floating Shapes */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 400px;
+            height: 400px;
+            background: var(--primary);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--secondary);
+            bottom: 10%;
+            left: -150px;
+            animation-delay: -5s;
+        }
+
+        .shape-3 {
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            top: 40%;
+            right: 10%;
+            animation-delay: -10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-30px) rotate(120deg); }
+            66% { transform: translateY(30px) rotate(240deg); }
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-sm);
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--light);
+            font-weight: 800;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 32px rgba(183,28,28,0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(183,28,28,0.4); }
+            50% { box-shadow: 0 8px 40px rgba(183,28,28,0.6); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.7rem 1.3rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--text);
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+            border-radius: 50px;
+        }
+
+        .nav-links a:hover::before,
+        .nav-links a.active::before {
+            opacity: 1;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--light);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .mobile-menu-btn {
+            color: var(--primary);
+        }
+
+        /* Hero Section - Modern Split Design */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            animation: slideInLeft 1s ease;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            color: var(--secondary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--light);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255,255,255,0.9);
+            font-family: 'Noto Sans Bengali', sans-serif;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2.5rem;
+            max-width: 500px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2rem;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(255,205,126,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(255,205,126,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--light);
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 1s ease;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .hero-icon-main {
+            width: 150px;
+            height: 150px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            box-shadow: 0 20px 60px rgba(183,28,28,0.5);
+            animation: floatIcon 3s ease-in-out infinite;
+        }
+
+        @keyframes floatIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating-cards {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .float-card {
+            position: absolute;
+            background: rgba(255,255,255,0.95);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: floatCard 4s ease-in-out infinite;
+        }
+
+        .float-card-1 {
+            top: 10%;
+            left: -20px;
+            animation-delay: 0s;
+        }
+
+        .float-card-2 {
+            bottom: 20%;
+            right: -30px;
+            animation-delay: -2s;
+        }
+
+        .float-card i {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .float-card div h4 {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 0.2rem;
+        }
+
+        .float-card div p {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        @keyframes floatCard {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Stats Section - Floating Cards */
+        .stats-section {
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+            padding: 0 2rem;
+        }
+
+        .stats-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+        }
+
+        .stat-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover .stat-icon {
+            transform: scale(1.1) rotate(10deg);
+            background: var(--gradient);
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Quick Access Section */
+        .quick-access {
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(183,28,28,0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--light);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .feature-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            background: var(--gradient);
+            transition: height 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card:hover::after {
+            height: 4px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--gradient);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .feature-card:hover .feature-link {
+            gap: 12px;
+        }
+
+        /* Recent Activities Preview */
+        .activities-preview {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .activities-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .activity-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .activity-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow);
+        }
+
+        .activity-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .activity-item:nth-child(2) .activity-bg {
+            background: linear-gradient(135deg, #1565c0 0%, #1976d2 100%);
+        }
+
+        .activity-item:nth-child(3) .activity-bg {
+            background: linear-gradient(135deg, #2e7d32 0%, #388e3c 100%);
+        }
+
+        .activity-item:nth-child(4) .activity-bg {
+            background: linear-gradient(135deg, #e65100 0%, #f57c00 100%);
+        }
+
+        .activity-bg i {
+            font-size: 3rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .activity-bg span {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .activity-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+        }
+
+        .activity-item:hover .activity-overlay {
+            transform: translateY(0);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1.2rem 3rem;
+            background: var(--secondary);
+            color: var(--dark);
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(255,205,126,0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(255,205,126,0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            color: var(--secondary);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .tagline {
+            color: var(--secondary);
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-visual {
+                order: 1;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .activities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .activities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
     </div>
 
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <span>RCY Adamdighi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i> Serving Since June 2021
+                </div>
+                <h1>
+                    Red Crescent Youth
+                    <span>Adamdighi, Bogura</span>
+                </h1>
+                <p class="hero-subtitle">
+                    <i class="fas fa-map-marker-alt"></i> 
+                    আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া
+                </p>
+                <p class="hero-description">
+                    Dedicated to humanitarian service, disaster response, and community welfare. 
+                    Join us in making a difference through voluntary service and compassion.
+                </p>
+                <div class="hero-buttons">
+                    <a href="activities.html" class="btn btn-primary">
+                        <i class="fas fa-compass"></i> Explore Activities
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        <i class="fas fa-user-plus"></i> Join Us
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-image">
+                        <div class="hero-icon-main">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.8); font-size: 1.2rem; text-align: center;">
+                            Youth Red Crescent<br>Adamdighi Unit
+                        </p>
+                    </div>
+                    <div class="floating-cards">
+                        <div class="float-card float-card-1">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>1000+ Volunteers</h4>
+                                <p>Active Members</p>
+                            </div>
+                        </div>
+                        <div class="float-card float-card-2">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>BDRCS Certified</h4>
+                                <p>Official Unit</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number" data-target="1000">0</div>
+                <div class="stat-label">Total Volunteers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <div class="stat-number" data-target="900">0</div>
+                <div class="stat-label">Institutional Volunteers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">Upazila Volunteers</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="stat-number" data-target="15">0</div>
+                <div class="stat-label">Executive Members</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Section -->
+    <section class="quick-access">
+        <div class="section-header">
+            <span class="section-badge">
+                <i class="fas fa-th-large"></i> Quick Access
+            </span>
+            <h2>What We Offer</h2>
+            <p>Explore our programs, resources, and opportunities to get involved with our humanitarian mission.</p>
+        </div>
+        <div class="features-grid">
+            <a href="library.html" class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Online Library</h3>
+                <p>Access first aid guides, training materials, BDRCS brand guidelines, and essential resources for volunteers.</p>
+                <span class="feature-link">
+                    Browse Library <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
+            <a href="activities.html" class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <h3>Our Activities</h3>
+                <p>Explore our humanitarian work including training programs, disaster response, and community welfare initiatives.</p>
+                <span class="feature-link">
+                    View Activities <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
+            <a href="notices.html" class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>Latest Notices</h3>
+                <p>Stay updated with upcoming events, meetings, training schedules, and important announcements.</p>
+                <span class="feature-link">
+                    Check Notices <i class="fas fa-arrow-right"></i>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Recent Activities Preview -->
+    <section class="activities-preview">
+        <div class="section-header">
+            <span class="section-badge">
+                <i class="fas fa-fire"></i> Recent Activities
+            </span>
+            <h2>Our Work in Action</h2>
+            <p>Glimpses of our recent humanitarian programs and community service initiatives.</p>
+        </div>
+        <div class="activities-grid">
+            <div class="activity-item" onclick="location.href='monthly-meeting.html'">
+                <div class="activity-bg">
+                    <i class="fas fa-users"></i>
+                    <span>Monthly General Meeting</span>
+                </div>
+                <div class="activity-overlay">
+                    <h4>Regular Gathering</h4>
+                    <p>Every 2nd Saturday • All Volunteers</p>
+                </div>
+            </div>
+            <div class="activity-item" onclick="location.href='training-program.html'">
+                <div class="activity-bg">
+                    <i class="fas fa-chalkboard-user"></i>
+                    <span>Training Program</span>
+                </div>
+                <div class="activity-overlay">
+                    <h4>First Aid & CPR</h4>
+                    <p>Quarterly • BDRCS Certified</p>
+                </div>
+            </div>
+            <div class="activity-item" onclick="location.href='winter-distribution.html'">
+                <div class="activity-bg">
+                    <i class="fas fa-vest"></i>
+                    <span>Winter Distribution</span>
+                </div>
+                <div class="activity-overlay">
+                    <h4>Warm Clothes Drive</h4>
+                    <p>Dec-Jan • 500+ Families</p>
+                </div>
+            </div>
+            <div class="activity-item" onclick="location.href='tree-plantation.html'">
+                <div class="activity-bg">
+                    <i class="fas fa-tree"></i>
+                    <span>Tree Plantation</span>
+                </div>
+                <div class="activity-overlay">
+                    <h4>Green Initiative</h4>
+                    <p>Year-round • 10,000 Trees Goal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Ready to Make a Difference?</h2>
+            <p>Join our community of dedicated volunteers and be part of something bigger. Together, we can create positive change in Adamdighi and beyond.</p>
+            <a href="contact.html" class="cta-btn">
+                <i class="fas fa-heart"></i> Become a Volunteer
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <div class="container">
-        <p>
-          © ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth,
-          Adamdighi Upazila
-        </p>
-        <p class="tagline">
-          <i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায়
-          নিবেদিত
-        </p>
-      </div>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3>
+                    <i class="fas fa-hand-holding-heart"></i>
+                    RCY Adamdighi
+                </h3>
+                <p>Red Crescent Youth, Adamdighi Upazila is dedicated to humanitarian service, disaster response, and community welfare in Bogura District, Bangladesh.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="activities.html"><i class="fas fa-chevron-right"></i> Activities</a></li>
+                    <li><a href="library.html"><i class="fas fa-chevron-right"></i> Library</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="training-program.html"><i class="fas fa-chevron-right"></i> Training</a></li>
+                    <li><a href="winter-distribution.html"><i class="fas fa-chevron-right"></i> Distribution</a></li>
+                    <li><a href="tree-plantation.html"><i class="fas fa-chevron-right"></i> Plantation</a></li>
+                    <li><a href="awareness-program.html"><i class="fas fa-chevron-right"></i> Awareness</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                    <li><a href="mailto:rcyadamdighi@gmail.com"><i class="fas fa-chevron-right"></i> Email Us</a></li>
+                    <li><a href="partners.html"><i class="fas fa-chevron-right"></i> Partners</a></li>
+                    <li><a href="notices.html"><i class="fas fa-chevron-right"></i> Notices</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+            <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
+        </div>
     </footer>
 
-    <script src="js/main.js"></script>
-  </body>
+    <!-- JavaScript -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animated stats counter
+        const animateStats = () => {
+            const stats = document.querySelectorAll('.stat-number');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = parseInt(entry.target.getAttribute('data-target'));
+                        const suffix = target >= 50 ? '+' : '';
+                        let current = 0;
+                        const increment = Math.ceil(target / 40);
+                        
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= target) {
+                                current = target;
+                                clearInterval(timer);
+                            }
+                            entry.target.textContent = current + suffix;
+                        }, 30);
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            stats.forEach(stat => observer.observe(stat));
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            animateStats();
+        });
+    </script>
+
+</body>
 </html>
