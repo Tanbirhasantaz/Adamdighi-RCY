@@ -363,6 +363,7 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
+            padding-bottom: 120px; /* Added padding for stats overlap */
         }
 
         .hero::before {
@@ -596,12 +597,12 @@
             to { opacity: 1; transform: translateX(0); }
         }
 
-        /* Stats Section - Floating Cards */
+        /* Stats Section - Fixed Overlap Issue */
         .stats-section {
-            margin-top: -80px;
             position: relative;
-            z-index: 10;
+            z-index: 100;
             padding: 0 2rem;
+            margin-top: -80px;
         }
 
         .stats-container {
@@ -621,6 +622,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .stat-card::before {
@@ -1068,6 +1070,11 @@
                 display: inline-block;
             }
 
+            /* Stats section tablet */
+            .stats-section {
+                margin-top: -60px;
+            }
+            
             .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1101,7 +1108,7 @@
             .hero {
                 padding-top: 100px;
                 min-height: auto;
-                padding-bottom: 4rem;
+                padding-bottom: 100px; /* Increased for stats overlap */
             }
 
             .hero h1 {
@@ -1130,9 +1137,12 @@
                 justify-content: center;
             }
 
+            /* Stats section mobile - FIXED */
             .stats-section {
-                margin-top: 2rem;
+                margin-top: -60px;
                 padding: 0 1rem;
+                position: relative;
+                z-index: 100;
             }
 
             .stats-container {
@@ -1142,10 +1152,31 @@
 
             .stat-card {
                 padding: 1.5rem;
+                display: flex;
+                align-items: center;
+                text-align: left;
+                gap: 1.5rem;
+            }
+
+            .stat-icon {
+                margin: 0;
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+                flex-shrink: 0;
+            }
+
+            .stat-content {
+                flex: 1;
             }
 
             .stat-number {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.9rem;
             }
 
             .features-grid {
@@ -1243,7 +1274,7 @@
             }
 
             .stat-number {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .feature-icon {
@@ -1251,11 +1282,11 @@
                 height: 60px;
                 font-size: 2rem;
             }
-        }
-
-        /* Smooth scroll for mobile menu links */
-        html {
-            scroll-behavior: smooth;
+            
+            /* Smaller negative margin on very small screens */
+            .stats-section {
+                margin-top: -40px;
+            }
         }
 
         /* Prevent body scroll when mobile menu is open */
@@ -1376,36 +1407,44 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats Section - Fixed Structure -->
     <section class="stats-section">
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-icon">
                     <i class="fas fa-users"></i>
                 </div>
-                <div class="stat-number" data-target="1000">0</div>
-                <div class="stat-label">Total Volunteers</div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="1000">0</div>
+                    <div class="stat-label">Total Volunteers</div>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
                     <i class="fas fa-building"></i>
                 </div>
-                <div class="stat-number" data-target="900">0</div>
-                <div class="stat-label">Institutional Volunteers</div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="900">0</div>
+                    <div class="stat-label">Institutional Volunteers</div>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
                     <i class="fas fa-map-marked-alt"></i>
                 </div>
-                <div class="stat-number" data-target="50">0</div>
-                <div class="stat-label">Upazila Volunteers</div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">Upazila Volunteers</div>
+                </div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
-                <div class="stat-number" data-target="15">0</div>
-                <div class="stat-label">Executive Members</div>
+                <div class="stat-content">
+                    <div class="stat-number" data-target="15">0</div>
+                    <div class="stat-label">Executive Members</div>
+                </div>
             </div>
         </div>
     </section>
