@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Members | RCY Adamdighi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #b71c1c;
+            --primary-light: #d32f2f;
+            --primary-dark: #8b0000;
+            --secondary: #ffcd7e;
+            --bg: #fafafa;
+            --white: #ffffff;
+            --text: #1a1a2e;
+            --text-light: #64748b;
+            --border: #e8e8e8;
+            --shadow: 0 10px 40px rgba(0,0,0,0.1);
+            --shadow-hover: 0 20px 60px rgba(0,0,0,0.15);
+            --gradient: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navbar - Modern Glassmorphism */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 1000;
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.4rem;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--gradient);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            background: var(--gradient);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Organizational Structure */
+        .structure-section {
+            padding: 4rem 2rem;
+            background: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(183,28,28,0.1);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        /* Top Leader - President */
+        .top-leader {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            border: 3px solid var(--secondary);
+        }
+
+        .leader-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10;
+        }
+
+        .leader-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .leader-image i {
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.3;
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leader-info {
+            padding: 2rem;
+        }
+
+        .leader-info h3 {
+            font-size: 1.8rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .leader-role {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .leader-desc {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .leader-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .leader-contact a {
+            width: 45px;
+            height: 45px;
+            background: var(--bg);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .leader-contact a:hover {
+            background: var(--gradient);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Team Grid */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .member-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-image i {
+            font-size: 5rem;
+            color: #ddd;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+        }
+
+        .member-role {
+            display: inline-block;
+            background: rgba(183,28,28,0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .member-id {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .member-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .meta-tag {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            background: var(--bg);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .meta-tag i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .member-social {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .member-social a {
+            width: 35px;
+            height: 35px;
+            background: var(--bg);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .member-social a:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Department Sections */
+        .department-section {
+            padding: 4rem 2rem;
+            background: var(--bg);
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .dept-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--primary);
+        }
+
+        .dept-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dept-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .dept-header h3 {
+            font-size: 1.3rem;
+            color: var(--text);
+        }
+
+        .dept-header span {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .dept-members {
+            list-style: none;
+        }
+
+        .dept-members li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dept-members li:last-child {
+            border-bottom: none;
+        }
+
+        .dept-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .dept-info h4 {
+            color: var(--text);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .dept-info p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Join CTA */
+        .join-section {
+            padding: 4rem 2rem;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .join-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .join-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn-join {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            background: var(--secondary);
+            color: var(--dark);
+            border-radius: 14px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-join:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .tagline {
+            color: var(--secondary);
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dept-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .leader-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <span>RCY Adamdighi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="executive-members.html" class="active">Executive</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Executive Members</h1>
+            <p>Meet our dedicated leadership team working tirelessly to serve humanity and build a better community in Adamdighi.</p>
+        </div>
+    </section>
+
+    <!-- Top Leadership -->
+    <section class="structure-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-crown"></i> Leadership
+                </span>
+                <h2>President</h2>
+                <p>Leading our mission with vision and dedication</p>
+            </div>
+
+            <div class="top-leader">
+                <div class="leader-card">
+                    <span class="leader-badge">
+                        <i class="fas fa-crown"></i> President
+                    </span>
+                    <div class="leader-image">
+                        <i class="fas fa-user"></i>
+                        <!-- Replace with actual photo: <img src="images/president.jpg" alt="President"> -->
+                    </div>
+                    <div class="leader-info">
+                        <h3>Md. [President Name]</h3>
+                        <div class="leader-role">President</div>
+                        <p class="leader-desc">
+                            Leading RCY Adamdighi since 2021 with a vision to create a humanitarian network across the upazila.
+                        </p>
+                        <div class="leader-contact">
+                            <a href="tel:+8801XXXXXXXX"><i class="fas fa-phone"></i></a>
+                            <a href="mailto:president@rcyadamdighi.com"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Committee -->
+    <section class="department-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-users-cog"></i> Committee
+                </span>
+                <h2>Executive Committee 2024-2025</h2>
+                <p>Dedicated members serving in various roles</p>
+            </div>
+
+            <div class="team-grid">
+                
+                <!-- Vice President -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <span class="member-role">Vice President</span>
+                        <h3>Md. [Vice President Name]</h3>
+                        <p class="member-id">ID: RCY-VP-001</p>
+                        <div class="member-meta">
+                            <span class="meta-tag"><i class="fas fa-calendar"></i> Since 2022</span>
+                            <span class="meta-tag"><i class="fas fa-award"></i> Senior Member</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- General Secretary -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <span class="member-role">General Secretary</span>
+                        <h3>Md. [Secretary Name]</h3>
+                        <p class="member-id">ID: RCY-GS-001</p>
+                        <div class="member-meta">
+                            <span class="meta-tag"><i class="fas fa-calendar"></i> Since 2021</span>
+                            <span class="meta-tag"><i class="fas fa-file-alt"></i> Administration</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Joint Secretary -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <span class="member-role">Joint Secretary</span>
+                        <h3>Md. [Joint Secretary Name]</h3>
+                        <p class="member-id">ID: RCY-JS-001</p>
+                        <div class="member-meta">
+                            <span class="meta-tag"><i class="fas fa-calendar"></i> Since 2022</span>
+                            <span class="meta-tag"><i class="fas fa-tasks"></i> Operations</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treasurer -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <span class="member-role">Treasurer</span>
+                        <h3>Md. [Treasurer Name]</h3>
+                        <p class="member-id">ID: RCY-TR-001</p>
+                        <div class="member-meta">
+                            <span class="meta-tag"><i class="fas fa-calendar"></i> Since 2021</span>
+                            <span class="meta-tag"><i class="fas fa-coins"></i> Finance</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Organizing Secretary -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <span class="member-role">Organizing Secretary</span>
+                        <h3>Md. [Organizer Name]</h3>
+                        <p class="member-id">ID: RCY-OS-001</p>
+                        <div class="member-meta">
+                            <span class="meta-tag"><i class="fas fa-calendar"></i> Since 2023</span>
+                            <span class="meta-tag"><i class="fas fa-sitemap"></i> Events</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publicity Secretary -->
+                <div class="member-card">
+                    <div class="member-image">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <span class="member-role">Publicity Secretary</span>
+                        <h3>Md. [Publicity Name]</h3>
+                        <p class="member-id">ID: RCY-PS-001</p>
+                        <div class="member-meta">
+                            <span class="meta-tag"><i class="fas fa-calendar"></i> Since 2022</span>
+                            <span class="meta-tag"><i class="fas fa-bullhorn"></i> Media</span>
+                        </div>
+                        <div class="member-social">
+                            <a href="#"><i class="fas fa-phone"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Department Heads -->
+    <section class="structure-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-sitemap"></i> Departments
+                </span>
+                <h2>Department Heads</h2>
+                <p>Leading specialized teams across various domains</p>
+            </div>
+
+            <div class="dept-grid">
+                
+                <!-- Training Department -->
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <div class="dept-icon">
+                            <i class="fas fa-chalkboard-user"></i>
+                        </div>
+                        <div>
+                            <h3>Training Department</h3>
+                            <span>First Aid & Capacity Building</span>
+                        </div>
+                    </div>
+                    <ul class="dept-members">
+                        <li>
+                            <div class="dept-avatar">TH</div>
+                            <div class="dept-info">
+                                <h4>Md. [Training Head]</h4>
+                                <p>Head of Training</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dept-avatar">TI</div>
+                            <div class="dept-info">
+                                <h4>Md. [Trainer Name]</h4>
+                                <p>Senior Trainer</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Disaster Response -->
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <div class="dept-icon">
+                            <i class="fas fa-house-chimney-crack"></i>
+                        </div>
+                        <div>
+                            <h3>Disaster Response</h3>
+                            <span>Emergency & Relief Operations</span>
+                        </div>
+                    </div>
+                    <ul class="dept-members">
+                        <li>
+                            <div class="dept-avatar">DR</div>
+                            <div class="dept-info">
+                                <h4>Md. [Response Head]</h4>
+                                <p>Response Coordinator</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dept-avatar">RF</div>
+                            <div class="dept-info">
+                                <h4>Md. [Field Name]</h4>
+                                <p>Field Coordinator</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Health & Awareness -->
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <div class="dept-icon">
+                            <i class="fas fa-heart-pulse"></i>
+                        </div>
+                        <div>
+                            <h3>Health & Awareness</h3>
+                            <span>Public Health Campaigns</span>
+                        </div>
+                    </div>
+                    <ul class="dept-members">
+                        <li>
+                            <div class="dept-avatar">HH</div>
+                            <div class="dept-info">
+                                <h4>Md. [Health Head]</h4>
+                                <p>Health Coordinator</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dept-avatar">AW</div>
+                            <div class="dept-info">
+                                <h4>Md. [Awareness Name]</h4>
+                                <p>Awareness Officer</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Volunteer Coordination -->
+                <div class="dept-card">
+                    <div class="dept-header">
+                        <div class="dept-icon">
+                            <i class="fas fa-people-group"></i>
+                        </div>
+                        <div>
+                            <h3>Volunteer Coordination</h3>
+                            <span>Member Management</span>
+                        </div>
+                    </div>
+                    <ul class="dept-members">
+                        <li>
+                            <div class="dept-avatar">VC</div>
+                            <div class="dept-info">
+                                <h4>Md. [Coordination Head]</h4>
+                                <p>Volunteer Coordinator</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dept-avatar">IN</div>
+                            <div class="dept-info">
+                                <h4>Md. [Institution Name]</h4>
+                                <p>Institution Coordinator</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Join CTA -->
+    <section class="join-section">
+        <h2>Want to Join Our Team?</h2>
+        <p>We're always looking for dedicated volunteers who want to make a difference in our community.</p>
+        <a href="contact.html" class="btn-join">
+            <i class="fas fa-user-plus"></i> Apply for Membership
+        </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+        <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
+    </footer>
+
+</body>
+</html>
