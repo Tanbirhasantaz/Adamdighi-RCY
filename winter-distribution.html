@@ -214,30 +214,36 @@
 
         .photo-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 1rem;
         }
 
         .photo-item {
+            position: relative;
             aspect-ratio: 4/3;
             background: #f5f5f5;
             border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed #ddd;
+            overflow: hidden;
+            border: 2px solid #ffe0b2;
         }
 
-        .photo-item i {
-            font-size: 2.5rem;
-            color: #ccc;
-            margin-bottom: 0.5rem;
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .photo-item span {
-            color: #999;
-            font-size: 0.85rem;
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
         }
 
         footer {
@@ -372,20 +378,12 @@
             <h2><i class="fas fa-images"></i> Distribution Photos</h2>
             <div class="photo-grid">
                 <div class="photo-item">
-                    <img src ="winter1.jpg" alt="Winter Distribution 2026">
-                    <span>Winter Distribution 2026</span>
+                    <img src="winter1.jpg" alt="Winter Distribution 2026">
+                    <div class="photo-caption">Winter Distribution 2026</div>
                 </div>
                 <div class="photo-item">
-                    <i class="fas fa-image"></i>
-                    <span>Clothes Sorting</span>
-                </div>
-                <div class="photo-item">
-                    <i class="fas fa-image"></i>
-                    <span>Family Receiving</span>
-                </div>
-                <div class="photo-item">
-                    <i class="fas fa-image"></i>
-                    <span>Volunteer Team</span>
+                    <img src="winter2.jpg" alt="Volunteer Team">
+                    <div class="photo-caption">Volunteer Team</div>
                 </div>
             </div>
         </div>
