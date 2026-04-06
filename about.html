@@ -1,139 +1,1267 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="bn">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | RCY Adamdighi</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #b71c1c;
+            --primary-light: #d32f2f;
+            --primary-dark: #8b0000;
+            --secondary: #ffcd7e;
+            --accent: #ff6b6b;
+            --dark: #0f0f0f;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+            --text: #1a1a2e;
+            --text-light: #64748b;
+            --gradient: linear-gradient(135deg, #b71c1c 0%, #d32f2f 100%);
+            --gradient-hero: linear-gradient(135deg, #8b0000 0%, #b71c1c 50%, #d32f2f 100%);
+            --shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-sm: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+            background: var(--gray);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navbar - Cloth Distribution Style */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #ffffff;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            height: 70px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #b71c1c;
+            font-weight: 800;
+            font-size: 1.3rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.3rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #1e2a2f;
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: #b71c1c;
+            color: #ffffff;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+            padding: 4rem 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            color: var(--secondary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+            display: block;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            font-family: 'Noto Sans Bengali', sans-serif;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary);
+            padding-left: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+
+        .hero-stat p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4/3;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .hero-icon-main {
+            width: 120px;
+            height: 120px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            border: 3px solid rgba(255,255,255,0.3);
+        }
+
+        /* 7 Fundamental Principles Section - Ultra Modern */
+        .principles-section {
+            padding: 8rem 2rem;
+            background: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .principles-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(183,28,28,0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .principles-section::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255,205,126,0.05) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .section-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(183,28,28,0.1) 0%, rgba(211,47,47,0.1) 100%);
+            color: var(--primary);
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(183,28,28,0.2);
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .principles-intro {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 4rem;
+            color: var(--text-light);
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        /* Modern 7 Principles Grid */
+        .principles-wrapper {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .principle-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .principle-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: var(--gradient);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .principle-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(183,28,28,0.15);
+            border-color: rgba(183,28,28,0.1);
+        }
+
+        .principle-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .principle-number {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 30px rgba(183,28,28,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .principle-number::after {
+            content: '';
+            position: absolute;
+            inset: -5px;
+            border-radius: 50%;
+            border: 2px solid rgba(183,28,28,0.1);
+            animation: pulse-ring 2s infinite;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .principle-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .principle-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .principle-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Featured Principle (Center) */
+        .principle-card.featured {
+            background: var(--gradient);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(183,28,28,0.3);
+        }
+
+        .principle-card.featured::before {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .principle-card.featured .principle-number {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .principle-card.featured .principle-icon {
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .principle-card.featured h3 {
+            color: white;
+        }
+
+        .principle-card.featured p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* Principles Quote - Modern */
+        .principles-quote {
+            position: relative;
+            text-align: center;
+            padding: 4rem 3rem;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+
+        .principles-quote::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 10rem;
+            color: rgba(183,28,28,0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .principles-quote i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .principles-quote p {
+            font-size: 1.4rem;
+            color: var(--text);
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.7;
+        }
+
+        .quote-author {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .impact-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .impact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .impact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .impact-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .impact-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 6rem 2rem;
+            background: var(--light);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background: var(--gray);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary);
+        }
+
+        .team-image {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .team-image i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .team-badge {
+            position: absolute;
+            bottom: -15px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .team-content {
+            padding: 2rem;
+            padding-top: 2.5rem;
+        }
+
+        .team-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+
+        .team-role {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .team-desc {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* History Timeline */
+        .history-section {
+            padding: 6rem 2rem;
+            background: var(--gray);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding: 0 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary);
+            border-radius: 50%;
+            top: 0;
+            border: 4px solid var(--light);
+            box-shadow: 0 0 0 4px var(--primary);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: var(--light);
+            padding: 1.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 6rem 2rem;
+            background: var(--gradient);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.4s ease;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(255,205,126,0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255,205,126,0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: var(--light);
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: var(--light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .tagline {
+            color: var(--secondary);
+            font-weight: 600;
+            font-family: 'Noto Sans Bengali', sans-serif;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .principles-wrapper {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .principle-card.featured {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                border-left: none;
+                padding-left: 0;
+                border-bottom: 4px solid var(--secondary);
+                padding-bottom: 1rem;
+                display: inline-block;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .principles-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .principle-card.featured {
+                grid-column: span 1;
+                transform: scale(1);
+            }
+
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                text-align: left !important;
+                padding-left: 3rem;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .principles-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .principles-quote {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .principles-quote p {
+                font-size: 1.1rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
     <nav class="navbar">
-      <div class="container">
-        <a href="index.html" class="logo">
-          <i class="fas fa-hand-holding-heart"></i>
-          <span>RCY Adamdighi</span>
-        </a>
-        <ul class="nav-links" id="navLinks">
-          <li>
-            <a href="index.html"><i class="fas fa-home"></i> Home</a>
-          </li>
-          <li>
-            <a href="about.html" class="active"
-              ><i class="fas fa-info-circle"></i> About</a
-            >
-          </li>
-          <li>
-            <a href="activities.html"
-              ><i class="fas fa-images"></i> Activities</a
-            >
-          </li>
-          <li>
-            <a href="library.html"><i class="fas fa-book-open"></i> Library</a>
-          </li>
-          <li>
-            <a href="notices.html"><i class="fas fa-bullhorn"></i> Notices</a>
-          </li>
-          <li>
-            <a href="partners.html"
-              ><i class="fas fa-handshake"></i> Partners</a
-            >
-          </li>
-          <li>
-            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-          </li>
-        </ul>
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>RCY Adamdighi</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="library.html">Library</a></li>
+                <li><a href="notices.html">Notices</a></li>
+                <li><a href="partners.html">Partners</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <div class="container">
-      <section class="section">
-        <div class="section-header">
-          <h2 class="section-title">
-            <i class="fas fa-info-circle"></i> About Us
-          </h2>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-star"></i> Serving Since June 2021
+                </div>
+                <h1>
+                    Red Crescent Youth
+                    <span>Adamdighi, Bogura</span>
+                </h1>
+                <p class="hero-subtitle">
+                    আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া
+                </p>
+                <p class="hero-description">
+                    Dedicated to humanitarian service, disaster response, and community welfare. 
+                    We are a youth-led organization committed to making a positive difference 
+                    in our community through voluntary service and compassion.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <h3>1000+</h3>
+                        <p>Volunteers</p>
+                    </div>
+                    <div class="hero-stat">
+                        <h3>4+</h3>
+                        <p>Years of Service</p>
+                    </div>
+                    <div class="hero-stat">
+                        <h3>50+</h3>
+                        <p>Programs</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-image">
+                        <div class="hero-icon-main">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; text-align: center;">
+                            Youth Red Crescent<br>Adamdighi Unit
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card" style="max-width: 900px; margin: 0 auto">
-          <h3
-            style="color: var(--rc-red); margin-bottom: 1rem; font-size: 1.5rem"
-          >
-            Red Crescent Youth, Adamdighi Upazila
-          </h3>
-          <p style="margin-bottom: 1rem; line-height: 1.8">
-            Red Crescent Youth, Adamdighi Upazila is an Upazila team of Red
-            Crescent Youth, Bogura Unit. RCY Adamdighi Upazila team officially
-            working in Adamdighi Upazila from <strong>June 2021</strong>.
-          </p>
-          <p style="margin-bottom: 1rem; line-height: 1.8">
-            The Red Crescent Movement is an international humanitarian movement
-            with approximately 97 million volunteers, members, and staff
-            worldwide. It provides assistance without discrimination as to
-            nationality, race, religious beliefs, class, or political opinions.
-          </p>
-          <p style="margin-bottom: 1.5rem; line-height: 1.8">
-            <strong>Adamdighi</strong> is an Upazila of Bogura District in the
-            Division of Rajshahi, Bangladesh. Our team works tirelessly to serve
-            the local community through various humanitarian activities,
-            including first aid training, disaster response, health awareness
-            programs, and social welfare initiatives.
-          </p>
-
-          <div
-            style="
-              background: #ffebee;
-              padding: 1.5rem;
-              border-radius: var(--radius-sm);
-              border-left: 4px solid var(--rc-red);
-            "
-          >
-            <h4 style="color: var(--rc-red); margin-bottom: 0.5rem">
-              <i class="fas fa-bullseye"></i> Our Mission
-            </h4>
-            <p>
-              To serve humanity, protect human dignity, and build resilient
-              communities through voluntary service.
+    <!-- 7 Fundamental Principles Section - Ultra Modern -->
+    <section class="principles-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-globe"></i> Our Foundation
+                </span>
+                <h2>7 Fundamental Principles</h2>
+                <p>The core values that guide all Red Cross and Red Crescent societies worldwide</p>
+            </div>
+            
+            <p class="principles-intro">
+                The International Red Cross and Red Crescent Movement is guided by seven Fundamental Principles 
+                that ensure our humanitarian work remains ethical, effective, and universal. These principles 
+                unite all Red Crescent volunteers in our shared mission to serve humanity.
             </p>
-          </div>
-        </div>
 
-        <div class="stats-grid mt-2">
-          <div class="stat-card">
-            <div class="stat-number">2021</div>
-            <div class="stat-label">Established</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">15+</div>
-            <div class="stat-label">Institutions</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">50+</div>
-            <div class="stat-label">Programs</div>
-          </div>
-        </div>
-      </section>
-    </div>
+            <div class="principles-wrapper">
+                <div class="principle-card">
+                    <div class="principle-number">1</div>
+                    <div class="principle-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Humanity</h3>
+                    <p>Protect life and health, ensure respect for every human being.</p>
+                </div>
 
+                <div class="principle-card">
+                    <div class="principle-number">2</div>
+                    <div class="principle-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Impartiality</h3>
+                    <p>No discrimination based on nationality, race, religion, class or politics.</p>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-number">3</div>
+                    <div class="principle-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Neutrality</h3>
+                    <p>Don't take sides in hostilities or engage in controversies.</p>
+                </div>
+
+                <div class="principle-card featured">
+                    <div class="principle-number">4</div>
+                    <div class="principle-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Independence</h3>
+                    <p>Maintain autonomy to act according to our principles at all times.</p>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-number">5</div>
+                    <div class="principle-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Voluntary Service</h3>
+                    <p>Voluntary relief movement not prompted by desire for gain.</p>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-number">6</div>
+                    <div class="principle-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Unity</h3>
+                    <p>Only one Red Crescent Society per country, open to all.</p>
+                </div>
+
+                <div class="principle-card">
+                    <div class="principle-number">7</div>
+                    <div class="principle-icon">
+                        <i class="fas fa-globe-americas"></i>
+                    </div>
+                    <h3>Universality</h3>
+                    <p>Worldwide movement with equal status and shared duties.</p>
+                </div>
+            </div>
+
+            <div class="principles-quote">
+                <i class="fas fa-quote-left"></i>
+                <p>"These seven principles unite all Red Cross and Red Crescent volunteers in our shared mission to serve humanity with compassion and dignity."</p>
+                <span class="quote-author">— International Red Cross and Red Crescent Movement</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-chart-line"></i> Our Impact
+                </span>
+                <h2>Making a Difference</h2>
+                <p>Measurable results from our humanitarian efforts</p>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="impact-number">1000+</div>
+                    <div class="impact-label">Total Volunteers</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="impact-number">900+</div>
+                    <div class="impact-label">Institutional Members</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="impact-number">50+</div>
+                    <div class="impact-label">Upazila Volunteers</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="impact-number">15</div>
+                    <div class="impact-label">Executive Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-users"></i> Leadership
+                </span>
+                <h2>Meet Our Team</h2>
+                <p>Dedicated individuals leading our mission forward</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user"></i>
+                        <div class="team-badge">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h3>Team Member Name</h3>
+                        <p class="team-role">Unit Leader</p>
+                        <p class="team-desc">Leading the Adamdighi unit with vision and dedication since 2021.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user"></i>
+                        <div class="team-badge">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h3>Team Member Name</h3>
+                        <p class="team-role">Deputy Leader</p>
+                        <p class="team-desc">Coordinating volunteer activities and training programs.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <i class="fas fa-user"></i>
+                        <div class="team-badge">
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="team-content">
+                        <h3>Team Member Name</h3>
+                        <p class="team-role">Secretary</p>
+                        <p class="team-desc">Managing operations and community outreach initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline -->
+    <section class="history-section">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">
+                    <i class="fas fa-history"></i> Our Journey
+                </span>
+                <h2>Milestones</h2>
+                <p>Key moments in our organization's history</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2021</div>
+                        <h3>Foundation</h3>
+                        <p>RCY Adamdighi was established in June 2021 with a vision to serve humanity.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022</div>
+                        <h3>First Major Program</h3>
+                        <p>Launched our first large-scale relief distribution program.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2023</div>
+                        <h3>Expansion</h3>
+                        <p>Grew to 1000+ volunteers and expanded training programs.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <h3>Recognition</h3>
+                        <p>Recognized as a leading youth humanitarian organization in Bogura.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Join Our Mission</h2>
+            <p>Be part of something bigger. Together, we can create positive change in Adamdighi and beyond.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="fas fa-heart"></i> Become a Volunteer
+                </a>
+                <a href="activities.html" class="btn btn-secondary">
+                    <i class="fas fa-compass"></i> Explore Activities
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-      <div class="container">
-        <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া</p>
-        <p class="tagline">
-          <i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায়
-          নিবেদিত
-        </p>
-      </div>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-hand-holding-heart"></i>
+                <span>RCY Adamdighi</span>
+            </div>
+            <p>© ২০২৫ আদমদীঘি যুব রেড ক্রিসেন্ট, বগুড়া | Red Crescent Youth, Adamdighi Upazila</p>
+            <p class="tagline"><i class="fas fa-globe"></i> রেড ক্রিসেন্ট যুব — স্বেচ্ছায় সেবায় নিবেদিত</p>
+        </div>
     </footer>
 
-    <script src="js/main.js"></script>
-  </body>
+</body>
 </html>
